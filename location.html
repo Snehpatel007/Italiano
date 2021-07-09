@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Noto+Sans+JP:wght@500&family=Noto+Sans+TC&family=Open+Sans:wght@600&family=Roboto&display=swap"
+        rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+    .navbar-brand{
+    font-family: 'Dancing Script', cursive;
+    font-size:  x-large;
+  }
+    nav{
+    box-shadow: 0px 0px 31px 2px #ffd5a0;
+  }
+    .locations {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .location {
+        margin: 4% 5%;
+    }
+
+    .fab {
+        color: white;
+        margin: 10px 10px;
+        font-size: 1.5em;
+    }
+
+    .icon {
+        height: 35px;
+        width: 34px;
+        border-radius: 60px;
+        box-shadow: 0px 0px 6px 4px #ffc694;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px 16px;
+    }
+
+    .icons {
+        display: flex;
+        width: auto;
+        right: 0;
+        margin-right: 10%;
+    }
+
+    .imag {
+        height: 200px;
+    }
+
+    #loc1 {
+        background: url('https://images.unsplash.com/photo-1580654842703-532c62fd0144?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHJlc3RhdXJhbnQlMjBkb29yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')center center/cover;
+    }
+
+    #loc2 {
+        background: url('https://images.unsplash.com/photo-1512540519517-eca80b3d5fe3?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njh8fHJlc3RhdXJhbnQlMjBkb29yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')center center/cover;
+    }
+
+    #loc3 {
+        background: url('https://images.unsplash.com/photo-1569953317689-8a44de6c269b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTB8fHJlc3RhdXJhbnQlMjBkb29yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')center center/cover;
+    }
+
+    #loc4 {
+        background: url('https://images.unsplash.com/photo-1565553642963-04a5d7694ca2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMxfHxyZXN0YXVyYW50JTIwZG9vcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')center center/cover;
+    }
+
+    .midfoot {
+        width: 100%;
+        display: flex;
+        height: auto;
+        border: 2px solid transparent;
+        color: white;
+        font-family: 'Arimo', sans-serif;
+        font-weight: 100;
+    }
+
+    .branches {
+        width: 50%;
+        width: 40%;
+        margin-left: 10%;
+    }
+
+    .contact {
+        width: 40%;
+        margin-left: 8%;
+    }
+    .footicon{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 4px;
+    width: 2em;
+    height: 2em;
+    margin: 10px;
+
+    }
+    .mb-4{
+        display: flex;
+    padding: 45px;
+    padding-bottom: 60px;
+    }
+    .p-4{
+      
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    height: 22vh;
+    }
+    h6{
+        margin: 0;
+    }
+    @media (max-width:840px) {
+
+        .midfoot {
+
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: auto;
+            border: 2px solid transparent;
+            color: white;
+        }
+
+        .branches {
+            margin-top: 10vh;
+            width: 80%;
+
+        }
+
+        .contact {
+            width: 80%;
+
+        }
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Italiano</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./restorantProject.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./linkedinskilladder.html">Menu</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Locations</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./story.html">Our story</a>
+                      </li>
+
+
+
+
+                </ul>
+                <div class="icons">
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="locations">
+
+        <div class="card location" style="width: 18rem;">
+            <div class="imag" id="loc1">
+
+            </div>
+            <div class="card-body">
+                <h3>Surat</h3>
+                <h6>Hour</h6> 
+                <p class="card-text">Monday -Sunday 12am-2am</p>
+                <h6>Phone</h6> 
+                <p class="card-text">+91 8511266722</p>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14883.065581062578!2d72.76397066760426!3d21.16169294964525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d917565121f%3A0x49e1b29d427411f0!2sSpice%20Villa%20Restaurant!5e0!3m2!1sen!2sin!4v1625578348680!5m2!1sen!2sin"
+                    width="282" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="card location" style="width: 18rem;">
+            <div class="imag" id="loc2">
+
+            </div>
+            <div class="card-body">
+                <h3>New york city</h3>
+                <h6>Hour</h6> 
+                <p class="card-text">Monday -Sunday 12am-2am</p>
+                <h6>Phone</h6> 
+                <p class="card-text">+91 8511266722</p>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9082217040755!2d-73.99227318463403!3d40.74204497932866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a4119ce269%3A0x9dec0c979b575972!2sEataly%20NYC%20Flatiron!5e0!3m2!1sen!2sin!4v1625578784899!5m2!1sen!2sin"
+                    width="282" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="card location" style="width: 18rem;">
+            <div class="imag" id="loc3">
+
+            </div>
+            <div class="card-body">
+                <h3>Las vegas</h3>
+                <h6>Hour</h6> 
+                <p class="card-text">Monday -Sunday 12am-2am</p>
+                <h6>Phone</h6> 
+                <p class="card-text">+91 8511266722</p>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12091.632950700587!2d-73.9988392635106!3d40.74204462791376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bbef9c8b8b%3A0xc0d56110e73f561f!2sLasagna!5e0!3m2!1sen!2sin!4v1625578921011!5m2!1sen!2sin"
+                    width="282" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="card location" style="width: 18rem;">
+            <div class="imag" id="loc4">
+
+            </div>
+            <div class="card-body">
+                <h3>Los angeles</h3>
+                <h6>Hour</h6> 
+                <p class="card-text">Monday -Sunday 12am-2am</p>
+                <h6>Phone</h6> 
+                <p class="card-text">+91 8511266722</p>
+            </div>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12091.633070953372!2d-73.99883926527451!3d40.7420439664267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a1c231ead3%3A0xa491dc02d5e766bf!2sPaul%20%26%20Jimmy&#39;s!5e0!3m2!1sen!2sin!4v1625579113166!5m2!1sen!2sin"
+                    width="282" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <!-- Grid container -->
+        <div class=" p-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <div class="footicon">
+                <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"
+                ><i class="fab foot fa-facebook-f"></i
+              ></a>
+            </div>
+            <div class="footicon">
+                <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"
+              ><i class="fab foot fa-twitter"></i
+            ></a>
+            </div>
+            <div class="footicon">
+                <!-- Google -->
+            <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"
+            ><i class="fab foot fa-google"></i
+          ></a>
+            </div>
+            <div class="footicon">
+                 <!-- Instagram -->
+            <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"
+            ><i class="fab foot fa-instagram"></i
+          ></a>
+            </div>
+            <div class="footicon">
+                <!-- Linkedin -->
+            <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"
+            ><i class="fab foot fa-linkedin-in"></i
+          ></a>
+            </div>
+            <div class="footicon">
+            <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"
+            ><i class="fab foot fa-github"></i
+          ></a>
+            </div>
+          </section>
+        </footer>
+    <div class="midfoot">
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p class="address">
+                Hotel Lavasa, Near Patel street, Sardar Patel circle,NYC-383315
+            </p>
+            <p>(+91)079-6826 1700</p>
+            <p>(+91)079-6826 1700</p>
+            <div class="email">
+                Snehpatel235@gmail.com
+            </div>
+        </div>
+        <div class="branches">
+            <h3>Our branches</h3>
+            <p>NYC</p>
+            <p>Las-vages</p>
+            <p>Los Angeles</p>
+            <p>Surat</p>
+
+        </div>
+    </div>
+
+    <div class="text-center p-3">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdporfolio.com/" style="color: white;">MDportfolio.com</a>
+    </div>
+
+    <script src="https://kit.fontawesome.com/63ac9b11ad.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

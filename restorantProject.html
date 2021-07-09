@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Vesper+Libre:wght@500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Noto+Sans+JP:wght@500&family=Noto+Sans+TC&family=Open+Sans:wght@600&family=Roboto&display=swap"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    background-color: black;
+  }
+  .navbar-brand{
+    font-family: 'Dancing Script', cursive;
+    font-size:  x-large;
+  }
+  nav {
+    box-shadow: 0px 0px 20px 8px #ffd5a0;
+  }
+
+  .carousel {
+    position: absolute;
+    z-index: 0;
+    height: 70vh;
+  }
+
+  .carousel-item {
+    opacity: 0.7;
+    height: 70vh;
+  }
+
+  .midddle {
+    position: absolute;
+    z-index: 50;
+    border: none;
+    width: 100%;
+    height: 80vh;
+    background-color: none;
+    display: flex;
+  }
+
+  #welcome {
+    height: 70vh;
+    width: 60%;
+    border: none;
+    margin: 10vh auto;
+    color: white;
+    font-family: 'Vesper Libre', serif;
+    font-size: xxx-large;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #greet {
+    transform: translateX(-80%);
+    margin: 0px 0px;
+    margin-top: 10vh;
+    opacity: 0;
+    transition: all 1s;
+  }
+
+  #greet.active {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  #offer {
+    font-family: 'Arimo', sans-serif;
+    font-size: x-large;
+    color: white;
+    margin-top: 1vh;
+    letter-spacing: 4px;
+  }
+
+  #firist {
+
+    opacity: 0;
+    transition: all 0.5s;
+    transition-delay: 1s;
+  }
+
+  #secend {
+
+    opacity: 0;
+    transition: all 0.5s;
+    transition-delay: 1.5s;
+  }
+
+  #tird {
+
+    opacity: 0;
+    transition: all 0.5s;
+    transition-delay: 2s;
+  }
+
+  #firist.active {
+
+    opacity: 1;
+  }
+
+  #secend.active {
+
+    opacity: 1;
+  }
+
+  #tird.active {
+
+    opacity: 1;
+  }
+
+  #btun {
+    border: 2px solid white;
+    background: none;
+    height: 35px;
+    width: 115px;
+    border-radius: 50px;
+    font-family: 'Arimo', sans-serif;
+    margin: 0px auto;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .togglehide {
+    height: 25vh;
+    width: 100%;
+    border: none;
+    margin-top: 10vh;
+    display: flex;
+    background: none;
+    justify-content: space-between;
+  }
+
+  #firstbx {
+    height: 0%;
+    width: 25%;
+    border: 5px solid white;
+    box-shadow: 1px 1px 10px 1px #fa6800;
+    background: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8aXRhbHl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+    transition: all 1s;
+  }
+
+  #secondbx {
+    height: 0%;
+    width: 25%;
+    border: 5px solid white;
+    box-shadow: 1px 1px 10px 1px #fa6800;
+    background: url('https://images.unsplash.com/photo-1553342385-111fd6bc6ab3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fGl0YWx5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+    transition: all 1s;
+  }
+
+  #thirdbx {
+    height: 0%;
+    width: 25%;
+    border: 5px solid white;
+    box-shadow: 1px 1px 10px 1px #fa6800;
+    background: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8aXRhbHl8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+    transition: all 1s;
+  }
+
+  #firstbx:hover {
+    height: 100%;
+  }
+
+  #secondbx:hover {
+    height: 100%;
+  }
+
+  #thirdbx:hover {
+    height: 100%;
+  }
+
+  #foodtitle {
+    margin: auto;
+    margin-top: 0px;
+    font-family: 'Vesper Libre', serif;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    display: block;
+    margin-top: 8vh;
+  }
+
+  .food {
+    margin: auto;
+    width: 100%;
+    margin-top: 80vh;
+    border: 2px solid black;
+
+  }
+
+  .card {
+    height: 400px;
+    display: inline-block;
+    margin: 2% 7%;
+    box-shadow: 1px -1px 10px 6px rgb(255 204 126);
+
+  }
+
+  .items {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+  .tablebook {
+    width: 80%;
+    border: 2px solid transparent;
+    background-color: #ffbf4a;
+    font-family: 'Arimo', sans-serif;
+    color: white;
+    height: auto;
+    margin: auto;
+  }
+
+  .imag {
+    height: 200px;
+  }
+
+  #item1 {
+    background: url('https://images.unsplash.com/photo-1610545676806-14c7ab3ce782?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fGl0YWxpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+  }
+
+  #item2 {
+    background: url('https://images.unsplash.com/photo-1571066811602-716837d681de?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGl0YWxpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+  }
+
+  #item3 {
+    background: url('https://images.unsplash.com/photo-1597131628347-c769fc631754?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGl0YWxpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+  }
+
+  #item4 {
+    background: url('https://images.unsplash.com/photo-1571167366136-b57e07761625?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXRhbGlhbiUyMGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')no-repeat center center/cover;
+  }
+
+  video {
+
+    width: 100%;
+
+  }
+
+  .video {
+    width: 100%;
+  }
+
+  .icons {
+    width: 40%;
+    height: 100%;
+  }
+
+  .fab {
+    color: white;
+    margin: 10px 10px;
+    font-size: 1.5em;
+  }
+
+  .icon {
+    height: 35px;
+    width: 34px;
+    border-radius: 60px;
+    box-shadow: 0px 0px 6px 4px #ffc694;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 16px;
+    cursor: pointer;
+  }
+
+  .icons {
+    display: flex;
+    width: auto;
+    right: 0;
+    margin-right: 10%;
+  }
+
+  .footicon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    color: white;
+    border-radius: 4px;
+    width: 2em;
+    height: 2em;
+    margin: 10px;
+
+  }
+
+  .mb-4 {
+    display: flex;
+    padding: 45px;
+    padding-bottom: 60px;
+  }
+
+  .p-4 {
+
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    height: 22vh;
+  }
+
+  .foot {
+    color: white;
+  }
+
+  .text-center {
+    background: black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    color: white;
+    align-items: center;
+  }
+
+  .socialicon {
+    width: 290px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 76px;
+  }
+
+  .price {
+    color: green;
+  }
+
+  .midfoot {
+    width: 100%;
+    display: flex;
+    height: auto;
+    border: 2px solid transparent;
+    color: white;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 100;
+  }
+
+  .branches {
+    width: 50%;
+    width: 40%;
+    margin-left: 10%;
+  }
+
+  .contact {
+    width: 40%;
+    margin-left: 8%;
+  }
+
+  .name {
+    display: flex;
+
+    flex-wrap: wrap;
+  }
+
+  .firstname {
+    padding: 2% 0%;
+    margin-left: 11%;
+  }
+
+  .lastname {
+    padding: 2% 0%;
+    margin-left: 11%;
+  }
+
+  .dates {
+    padding: 2% 0%;
+    margin-left: 11%;
+  }
+
+  .times {
+    margin-left: 11%;
+    padding: 2% 0%;
+  }
+
+  .phone {
+    padding: 2% 0%;
+    margin-left: 11%;
+  }
+
+  input {
+    border: 2px solid transparent;
+    border-bottom: 2px solid white;
+    background: none;
+    color: white;
+  }
+
+  input:active {
+    border: 2px solid transparent;
+    border-bottom: 2px solid white;
+  }
+
+  h6 {
+    margin-bottom: 0;
+  }
+
+  #booknow {
+    background: white;
+    color: black;
+    width: 13rem;
+    height: 2.5rem;
+    border: 2px solo;
+    border: 2px solid transparent;
+    margin-left: 2% 11%;
+  }
+
+  #booktable {
+    padding: 0px 11%
+  }
+
+  @media (max-width:840px) {
+    .items {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .togglehide {
+
+      width: 80%;
+      border: none;
+      margin-top: 10vh;
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    #firstbx {
+      width: 100%;
+    }
+
+    #secondbx {
+      width: 100%;
+    }
+
+    #thirdbx {
+      width: 100%;
+    }
+  }
+
+  @media (max-width:840px) {
+
+    .midfoot {
+
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+      border: 2px solid transparent;
+      color: white;
+    }
+
+    .branches {
+      margin-top: 10vh;
+      width: 80%;
+
+    }
+
+    .contact {
+      width: 80%;
+
+    }
+  }
+
+  @media (max-width:535px) {
+
+    .food {
+      margin: auto;
+      width: 100%;
+      margin-top: 90vh;
+      border: 2px solid black;
+
+    }
+  }
+    @media (max-width:472px) {
+
+     .togglehide{
+       display: none;
+     }
+
+    }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Italiano</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./restorantProject.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./linkedinskilladder.html">Menu</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./location.html">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./story.html">Our story</a>
+          </li>
+
+
+
+        </ul>
+        <div class="icons">
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+
+          </div>
+          <div class="icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <div class="icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2"  id="search" type="search" placeholder="Search favorite dish" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit"></button>
+            </form>
+          </div>
+        </div>
+      </nav> -->
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./project1.jpg" class="d-block h-60 w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg" class="d-block h-60 w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./patrick-tomasso-GXXYkSwndP4-unsplash.jpg" class="d-block h-60 w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
+  <div class="midddle">
+    <div id="welcome">
+      <p id="greet">
+        Benvenuto nel piu` lussuoso
+      </p>
+      <p id="offer">
+        <span id="firist">Experience</span> <span id="secend">IT</span> <span id="tird">Now</span>
+      </p>
+      <a href="./linkedinskilladder.html">
+      <button id="btun" >Order Now</button></a>
+
+      <div class="togglehide">
+        <div id="firstbx">
+
+        </div>
+        <div id="secondbx">
+
+        </div>
+        <div id="thirdbx">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="food">
+
+    <div class="tablebook">
+      <h2 id="booktable">Book a table</h2>
+     <form action="">
+      <div class="name">
+        <div class="firstname">
+          <h6> First Name</h6>
+
+          <input type="text" id="fname">
+        </div>
+        <div class="lastname">
+          <h6>Email</h6>
+
+          <input type="email" id="lname">
+        </div>
+      </div>
+      <div class="name">
+        <div class="dates">
+          <h6>Date</h6>
+          <input type="date" id="date">
+        </div>
+        <div class="times">
+          <h6>Time</h6>
+          <input type="time" id="time">
+        </div>
+        <div class="phone">
+          <h6> Contact </h6>
+          <input type="text" id="phones">
+        </div>
+      </div>
+      <div class="name">
+        <button id="booknow" type="button">Book Now</button>
+      </div>
+    </form>
+    </div>
+    <div id="foodtitle">
+      Special offers
+    </div>
+
+    <div class="items">
+     
+     
+      <div class="card cardleft" style="width: 18rem;">
+        <div class="imag" id="item1">
+
+        </div>
+        <div class="card-body">
+          <h3>chicken Parmigiona</h3>
+            Most popular beacuse they are herrty favorite and great values  
+          <h3 class="price">11$</h3>
+        </div>
+      </div>
+    
+    
+      <div class="card cardright" style="width: 18rem;">
+        <div class="imag" id="item2">
+
+        </div>
+        <div class="card-body">
+          <h3>Tiramisu</h3>
+          <p class="card-text">Traditional Italian dessert made with mascarpone mousse,lady finger cookies</p>
+          <h3 class="price">8$</h3>
+        </div>
+      </div>
+    
+    </div>
+    <div class="items">
+      
+      <div class="card cardleft" style="width: 18rem;">
+        <div class="imag" id="item3">
+      
+        </div>
+        <div class="card-body">
+          <h3>Tortino alla Giandula</h3>
+          <p class="card-text">Delicate chocklate tart topped with creamy giandua genche</p>
+          <h3 class="price">10$</h3>
+        </div>
+      </div>
+    
+    
+      <div class="card cardright" style="width: 18rem;">
+        <div class="imag" id="item4">
+
+        </div>
+        <div class="card-body">
+          <h3>Minestrone e Francobolli</h3>
+          <p class="card-text">Fregola Sarda with eggplant regout, Sicilian green olive & tapenades </p>
+          
+          <h3 class="price">8$</h3>
+        </div>
+      </div>
+    
+    </div>
+  </div>
+
+
+  <div class="video">
+    <video src="./pexels-kampus-production-6604375.mp4" autoplay="true" muted loop></video>
+  </div>
+
+  <footer class="footer">
+    <!-- Grid container -->
+    <div class=" p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <div class="footicon">
+          <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"><i
+              class="fab foot fa-facebook-f"></i></a>
+        </div>
+        <div class="footicon">
+          <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"><i
+              class="fab foot fa-twitter"></i></a>
+        </div>
+        <div class="footicon">
+          <!-- Google -->
+          <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"><i
+              class="fab foot fa-google"></i></a>
+        </div>
+        <div class="footicon">
+          <!-- Instagram -->
+          <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"><i
+              class="fab foot fa-instagram"></i></a>
+        </div>
+        <div class="footicon">
+          <!-- Linkedin -->
+          <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"><i
+              class="fab foot fa-linkedin-in"></i></a>
+        </div>
+        <div class="footicon">
+          <a class="btn btn-outline-transparent btn-floating m-1" href="#!" role="button"><i
+              class="fab foot fa-github"></i></a>
+        </div>
+      </section>
+  </footer>
+  <!-- Section: Social media -->
+
+  <!-- Section: Form -->
+
+  <!-- Copyright -->
+  <div class="midfoot">
+    <div class="contact">
+      <h3>Contact Us</h3>
+      <p class="address">
+      <p><i class="fas fa-map-marker-alt"></i> Hotel Lavasa, Near Patel street, Sardar Patel circle,NYC-383315</p>
+      </p>
+      <p><i class="fas fa-phone-alt"></i> (+91)079-6826 1700</p>
+      <p><i class="fas fa-phone-alt"></i> (+91)079-6826 1700</p>
+      <div class="email">
+        </p><i class="far fa-envelope"></i> Snehpatel235@gmail.com</p>
+      </div>
+    </div>
+    <div class="branches">
+      <h3>Our branches <i class="fas fa-map-marker"></i></h3>
+      <p>NYC</p>
+      <p>Las-vages</p>
+      <p>Los Angeles</p>
+      <p>Surat</p>
+
+    </div>
+  </div>
+
+  <div class="text-center p-3">
+    © 2020 Copyright:
+    <a class="text-white" href="https://mdporfolio.com/" style="color: white;">MDportfolio.com</a>
+  </div>
+  <!-- Copyright -->
+
+  <script src="https://kit.fontawesome.com/63ac9b11ad.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+  <script>
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyCCiBSk3Tp5Z0UD8q2xNZWujtLwQrc-N04",
+      authDomain: "fir-javascript-670d2.firebaseapp.com",
+      projectId: "fir-javascript-670d2",
+      storageBucket: "fir-javascript-670d2.appspot.com",
+      messagingSenderId: "64289180809",
+      appId: "1:64289180809:web:53f81387ca4e9340c30a58"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    
+    document.getElementById('booknow').addEventListener('click', function () {
+
+      let fname = document.getElementById('fname').value;
+      let lname = document.getElementById('fname').value;
+      let date = document.getElementById('date').value;
+      let time = document.getElementById('time').value;
+      let contact = document.getElementById('phones').value;
+      let inputs=document.querySelectorAll('input');
+      let id =
+        firebase.database().ref('table/' + contact).set({
+          firstname: fname,
+          lastname: lname,
+          date: date,
+          time: time,
+          contact: contact
+
+        });
+
+      
+      inputs.forEach(input=>{
+         input.value='';
+      })
+
+     alert("We have send an email please verify your mobile number")
+
+    })
+
+
+
+    function transform() {
+      const welcome = document.getElementById('greet');
+
+      const first = document.getElementById('firist');
+      const second = document.getElementById('secend');
+      const third = document.getElementById('tird');
+
+      welcome.classList.add('active');
+
+      first.classList.add('active');
+      second.classList.add('active');
+      third.classList.add('active');
+    }
+    window.addEventListener('mouseover', transform);
+  </script>
+</body>
+
+</html>
