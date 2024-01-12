@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<style>
+  /* .skills{
+    display: none;
+  } */
+
+  body{
+    background-color: rgb(7, 7, 7);
+    
+  }
+  #booknow {
+    background: white;
+    color: black;
+    width: 13rem;
+    height: 2.5rem;
+    
+    border: 2px solid transparent;
+    margin-left: 2% 11%;
+    margin-bottom: 0;
+  }
+  .navbar-brand{
+    font-family: 'Dancing Script', cursive;
+    font-size:  x-large;
+  }
+  nav{
+    box-shadow: 0px 0px 31px 2px #ffd5a0;
+  }
+  .btn{
+    background-color: rgb(0 0 0);
+    border: 0px solid #ffc30000;
+    box-shadow: 0px 0px 5px 2px #ffa244;
+  }
+  .btn:hover{
+    background-color: rgb(238, 223, 159);
+  }
+  .btn.active{
+    background-color: rgb(238, 223, 159);
+    border: 2px solid transparent;
+  }
+  .skill{
+    color: white;
+    display: inline-block;
+  }
+  .skills{
+    background-color: transparent;
+  }
+  #addedskills{
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    bottom: 0;
+    height: 40vh;
+    background-color: black;
+    border-top: 10px solid grey;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 31px 2px #ffd5a0;
+  }
+  .space{
+    height: 40vh;
+    width: 100%;
+  }
+  h6{
+    color: green;
+    
+  }
+  .number{
+    width: 46px;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0px 0px 7px 4px #ffbd4f;
+    font-weight: bold;
+    background-color: white;
+  }
+  .selectedPrize{
+    width: 33%;
+    text-align: center;
+  }
+
+
+
+  .selectedQuantity{
+    width: 34%;
+    text-align: center;
+  }
+
+  #selectedItems{
+    position: absolute;
+    z-index: 2000;
+    width: 450px;
+    margin-left: 30%;
+    margin-top: -50%;
+    transition-duration: 1s;
+  }
+
+  #selectedItems.active{
+    margin-top: 7%;
+  }
+  .selectedItem{
+     width: 33%;
+     text-align: center;
+  }
+  .selectedItm{
+    display: flex;
+  }
+
+  #OrderBtn{
+    width: 30%;
+    margin: auto;
+    border-radius: 6px;
+    background-color: white;
+    border: none;
+    box-shadow: #ffa244 0px 0px 5px 2px;
+    color: black;
+    margin-left: 3%
+  }
+
+  #CancelBtn{
+    width: 30%;
+    margin-left: 6px;
+    border-radius: 6px;
+    background-color: white;
+    border: none;
+    box-shadow: #ffa244 0px 0px 5px 2px;
+    color: black;
+    right: 3%;
+    position: absolute
+  }
+  #itemPart{
+    width: 100%;
+  }
+
+  
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Italiano</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./location.html">Locations</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./story.html">Our story</a>
+              </li>
+              
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2"  id="search" type="search" placeholder="Search favorite dish" aria-label="Search">
+              <!-- <button class="btn btn-outline-success" type="submit"></button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+      <ul class="list-group">
+        <li class="list-group-item skills">
+            <div class="skill">
+                Minestrone e Francobolli
+            </div>
+            <input class="number" type="number" min="1" placeholder="1" value="1">
+            <h6 >8$</h6>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button  class="btn btn-primary me-md-2" type="button">Add</button>
+              </div>
+        </li>
+        
+        <li class="list-group-item skills">
+            <div class="skill">
+                Spicy Kobe Meatballs
+            </div>
+            <input class="number" type="number" min="1" placeholder="1" value="1">
+            <h6 >8$</h6>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button  class="btn btn-primary me-md-2" type="button">Add</button>
+              </div>
+        </li>
+        
+        <li class="list-group-item skills">
+            <div class="skill">
+                Calimari ai Ferri 
+            </div>
+            <input class="number" type="number" min="1" placeholder="1" value="1">
+            <h6 >8$</h6>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button">Add</button>
+              </div>
+        </li>
+        
+        <li class="list-group-item skills">
+            <div class="skill">
+                Carpaccio di Piemontese
+            </div>
+            <input class="number" type="number" min="1" placeholder="1" value="1">
+            <h6 >12$</h6>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2" type="button">Add</button>
+              </div>
+        </li>
+        
+        <li class="list-group-item skills">
+            <div class="skill">
+                Organic Field Greens
+            </div>
+            <input class="number" type="number" min="1" placeholder="1" value="1">
+            <h6 >8$</h6>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary me-md-2"  type="button">Add</button>
+              </div>
+        </li>
+       
+        <li class="list-group-item skills">
+          <div class="skill">
+              Caesar
+          </div>
+          <input class="number" type="number" min="1" placeholder="1" value="1">
+          <h6 >10$</h6>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-primary me-md-2"  type="button">Add</button>
+            </div>
+      </li>
+     
+      <li class="list-group-item skills">
+        <div class="skill">
+            Baby Beets
+        </div>
+        <input class="number" type="number" min="1" placeholder="1" value="1">
+        <h6 >10$</h6>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2"  type="button">Add</button>
+          </div>
+    </li>
+    
+    <li class="list-group-item skills">
+      <div class="skill">
+          ll Bue
+      </div>
+      <input class="number" type="number" min="1" placeholder="1" value="1">
+      <h6 >21$</h6>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-primary me-md-2"  type="button">Add</button>
+        </div>
+  </li>
+  
+  <li class="list-group-item skills">
+    <div class="skill">
+        Contorni
+    </div>
+    <input class="number" type="number" min="1" placeholder="1" value="1">
+    <h6 >20$</h6>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary me-md-2"  type="button">Add</button>
+      </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Salse
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >17$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Tagliolini con Lobster Ragu all' Amatri ciana 
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >13$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Osso Buco Agnolotti Dal Plin
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >9$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Cavatelli con Scampi Fra'Diavola
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >13$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+       Orecchiette,Salsiccia e Rapini 
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >9$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Branzimo agli Agrumi
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >25$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Tonno alla Norma
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >399$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Cannoli
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >8$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Tortino alla Giandula
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >10$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Vanilla Panna Cotta
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >8$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+       Tiramisu
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >8$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Gelati e Sorbetti
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >10$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      The Canellioni
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >14.5$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Gabbriello Ravioli
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >14.5$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Manicootti Parmigiano
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >10.5$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Pepperoni
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >399$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+       Chicken Pancetta
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >9$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Eggplant Mazzarella
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >9$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      Umbria Turkey
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >11$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+      chicken Parmigiona
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >11$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<li class="list-group-item skills">
+  <div class="skill">
+       Italian Sauage
+  </div>
+  <input class="number" type="number" min="1" placeholder="1" value="1">
+  <h6 >11$</h6>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2"  type="button">Add</button>
+    </div>
+</li>
+
+<div class="space">
+
+</div>
+      
+  <div id="addedskills" >
+    <button class="btn1 btn-primary me-md-2" id="booknow"  type="button">Order now</button>
+
+    <div id="addedskill">
+      please add your orders 
+    </div>
+          
+          
+</div>
+
+<ul class="list-group" id="selectedItems">
+
+  <div id="itemPart">
+
+  <li class="list-group-item selectedItm" >
+    <div class="selectedItem">An item </div>
+    <div class="selectedPrize">prize</div>
+    <div class="selectedQuantity">quantity </div>
+  </li>
+</div>
+
+
+
+  <li class="list-group-item selectedItm" >
+    
+    <div class="TotalPrize">TotalPrize: <span id="ttlprz" >0</span></div>
+  </li>
+
+  <li class="list-group-item selectedItm" >
+    
+    <button class=" btn-primary me-md-2" id="OrderBtn"  type="button">Place order</button>
+    <button class=" btn-primary me-md-2" id="CancelBtn"  type="button">Cancel</button>
+  </li>
+
+
+  <!-- <li class="list-group-item">A second item</li> -->
+  
+</ul>
+
+<div id="backdrop">
+  Backdrop
+</div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script>
+  // var firebaseConfig = {
+  //   apiKey: "AIzaSyCCiBSk3Tp5Z0UD8q2xNZWujtLwQrc-N04",
+  //   authDomain: "fir-javascript-670d2.firebaseapp.com",
+  //   projectId: "fir-javascript-670d2",
+  //   storageBucket: "fir-javascript-670d2.appspot.com",
+  //   messagingSenderId: "64289180809",
+  //   appId: "1:64289180809:web:53f81387ca4e9340c30a58"
+  // };
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyCXCZ1Ltm8-95wb-V57GIyf0JaToas17qg",
+  authDomain: "newhotelmanagement.firebaseapp.com",
+  databaseURL: "https://newhotelmanagement-default-rtdb.firebaseio.com",
+  projectId: "newhotelmanagement",
+  storageBucket: "newhotelmanagement.appspot.com",
+  messagingSenderId: "832510433572",
+  appId: "1:832510433572:web:3d98183c11bbb1c92b7bb1",
+  measurementId: "G-6XJYPBDYEJ"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+let skills=document.getElementsByClassName('skills');
+let addbtns=document.getElementsByClassName('btn');
+let index=1;
+let setindex=index;
+localStorage.setItem(setindex,index);
+
+ let items=[];
+ let totalPrize=0;
+
+ Array.from(addbtns).forEach(btn=>{
+   
+  
+    let count=0;
+    let skill= btn.parentElement.parentElement.firstElementChild.innerHTML;
+    sessionStorage.setItem(skill,count);
+    btn.addEventListener('click',function () {
+      sessionStorage.getItem(skill,count);
+      count+=1;
+      sessionStorage.setItem(skill,count);
+
+      sessionStorage.getItem(setindex,index);
+      
+      let price= btn.parentElement.previousElementSibling.innerHTML;
+    console.log(price);
+        let skillbox=document.getElementById('addedskill');
+
+        btn.setAttribute('disabled','disabled');
+        let qntty= btn.parentElement.previousElementSibling.previousElementSibling.value;
+
+     skillbox.innerHTML+=`<h3><span class="badge bg-secondary">${skill} ${qntty}<i id=${index} onclick="dltskill(this.id)" class="fas fa-times"></i></span></h3>`
+
+    
+
+      console.log(count);
+      
+
+    //  firebase.database().ref('customer/'+index).set({
+    //      item:skill,
+    //      prize:price,
+    //      quntity:qntty
+    //     });
+
+        const item={
+          name: skill,
+          prize: price,
+          quntity:qntty
+        }
+
+       items.push(item);
+      
+      
+       console.log(items);
+
+        index+=1;
+        sessionStorage.setItem(setindex,index);
+    });
+ });
+
+ 
+ 
+ let search=document.getElementById('search');
+ search.addEventListener('input',function () {
+     
+     let skills=document.getElementsByClassName('skill');
+     Array.from(skills).forEach(skill=>{
+         if(skill.innerHTML.includes(search.value)){
+             skill.parentElement.style.display="block";
+         }
+         
+         else if(search.value.length===0){
+           skill.parentElement.style.display="none";
+         }
+         else {
+            skill.parentElement.style.display="none";
+         }
+     })
+ })
+
+
+ function dltskill(index) {
+   console.log("I will gonna deleted");
+   let dltelement=document.getElementById(index);
+  
+   let skills=document.getElementsByClassName('skill');
+   Array.from(skills).forEach(skill=>{
+     
+     if(skill.innerText.length===(dltelement.parentElement.innerText.length-2)){
+       
+       skill.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.removeAttribute('disabled','disabled');
+       skill.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.classList.remove('active');
+     }
+     else{
+       console.log(skill.innerText.length);
+       console.log(dltelement.parentElement.innerText.length);
+     }
+   })
+
+   console.log('now');
+   console.log(items);
+   Array.from(items).forEach(item=>{
+    
+      let newitems= items.filter(item=>{
+        return item.name.trim().length!==dltelement.parentElement.innerText.length-2;
+      });
+
+      items=[...newitems];
+      // console.log(item.name.trim().length);
+      // console.log(dltelement.parentElement.innerText.length);
+    
+   })
+
+   console.log(items);
+  dltelement.parentElement.innerHTML=``;
+ }
+
+ let selectedItems=document.getElementById('selectedItems');
+
+
+ const x= document.getElementById('booknow').onclick = function () {
+
+  
+  // document.getElementById('addedskill').innerHTML=`Please add something`;
+
+  Array.from(items).forEach(item=>{
+    // firebase.database().ref('customer/'+index).set({
+    //      item:item.name,
+    //      prize:item.prize,
+    //      quntity:item.qntty
+
+    //   });
+
+    let itemPart=document.getElementById('itemPart');
+    
+    
+    itemPart.innerHTML+= `<li class="list-group-item selectedItm" >
+    <div class="selectedItem">${item.name} </div>
+    <div class="selectedPrize">${item.prize} </div>
+    <div class="selectedQuantity">${item.quntity} </div>
+  </li>`
+
+  let prz= item.prize.slice(0,-1);
+
+  console.log(prz);
+
+  prz= parseInt(prz,10);
+
+   totalPrize+=(prz)*(item.quntity);
+  
+   document.getElementById('ttlprz').innerHTML=`${totalPrize}`;
+      console.log(item);
+  })
+
+  selectedItems.classList.add('active');
+ } 
+
+ document.getElementById('OrderBtn').onclick=function () {
+  
+  
+
+  selectedItems.classList.remove('active');
+  alert('your order has been placed successfully');
+    // window.location.reload();
+  
+  // skillbox.innerText=`please add your orders`;
+
+
+  // console.log(items);
+
+  // localStorage.clear();
+
+  // let x={'one': 1, 'two': 2, 'tree': 3};
+
+  let Orders=localStorage.getItem('Orders');
+  let totalOrders=localStorage.getItem('totalOrders');
+
+  if(totalOrders==null){
+    localStorage.setItem('totalOrders',1);
+  }
+  else{
+    localStorage.setItem('totalOrders',totalOrders+1);
+  }
+  
+  let newOrders;
+
+  if(Orders!=null){
+
+   newOrders=[...JSON.parse(Orders),Array.from(items)];
+   console.log(newOrders);
+  }
+  else{
+    newOrders=[Array.from(items)];
+    console.log(newOrders);
+  }
+  console.log(items);
+  let index=1;
+
+  firebase.database().ref('customer').set({
+         item:items,
+        
+        });
+
+  console.log(newOrders);
+  localStorage.setItem('Orders',JSON.stringify(newOrders));
+  let y=localStorage.getItem('Ordres');
+  // console.log(JSON.parse(y));
+
+  // Array.from(items).forEach(item=>{
+  //   localStorage.setItem(JSON.stringify(item.name))
+  // })
+
+
+  // while (items.length()>0) {
+  //   items.pop();
+  // }
+  
+  
+
+
+ }
+
+ document.getElementById('CancelBtn').onclick=function () {
+  
+  selectedItems.classList.remove('active');
+
+  let itemPart=document.getElementById('itemPart');
+
+  itemPart.innerHTML=`<li class="list-group-item selectedItm" >
+    <div class="selectedItem">An item </div>
+    <div class="selectedPrize">prize</div>
+    <div class="selectedQuantity">quantity </div>
+  </li>`;
+
+  console.log(items);
+
+ }
+  
+ 
+</script>
+<script src="https://kit.fontawesome.com/63ac9b11ad.js" crossorigin="anonymous"></script>
+</html>
